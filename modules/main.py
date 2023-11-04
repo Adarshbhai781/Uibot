@@ -7,11 +7,11 @@ import asyncio
 import requests
 import subprocess
 
-from modules import core as helper
-from modules.utils import progress_bar
-from modules.vars import API_ID as api_id
-from modules.vars import API_HASH as api_hash
-from modules.vars import BOT_TOKEN as bot_token
+import core as helper
+from utils import progress_bar
+from vars import API_ID as api_id
+from vars import API_HASH as api_hash
+from vars import BOT_TOKEN as bot_token
 
 
 from aiohttp import ClientSession

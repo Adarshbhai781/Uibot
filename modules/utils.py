@@ -62,3 +62,22 @@ def hrt(seconds, precision = 0):
 
     return "".join(pieces[:precision])
 
+timer = Timer()
+async def progress_bar(current,total,reply,start):
+      if timer.can_send():
+        now = time.time()
+        diff = now - start
+        if diff < 1:
+            return
+        else:
+            perc = f"{current * 100 / total:.1f}%"
+            elapsed_time = round(diff)
+            speed = current / elapsed_time
+            sp=str(hrb(speed))+"ps"
+            tot=hrb(total)
+            cur=hrb(current)
+            try:
+                await reply.edit(f'`┌ 𝙋𝙧𝙤𝙜𝙧𝙚𝙨𝙨 📈 -【 {perc} 】\n├ 𝙎𝙥𝙚𝙚𝙙 🧲 -【 {sp} 】\n└ 𝙎𝙞𝙯𝙚 📂 -【 {cur} / {tot} 】`')
+               
+            except FloodWait as e:
+                time.sleep(e.x)

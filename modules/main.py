@@ -105,7 +105,7 @@ async def account_login(bot: Client, m: Message):
     
     
 
-    await editable.edit("𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐨𝐫 𝐧𝐚𝐦𝐞")
+    await editable.edit(" Downloder Name ")
     input3: Message = await bot.listen(editable.chat.id)
     raw_text3 = input3.text
     await input3.delete(True)
@@ -167,8 +167,8 @@ async def account_login(bot: Client, m: Message):
 
             try:  
                 
-                cc = f'**[📂] Vid ID :** {str(count).zfill(3)}\n**Video Title :** {name1} {res} 😇😇.mkv\n**Batch :** {raw_text0}\n\n *Downloaded By* ➤{raw_text3}\n\n'
-                cc1 = f'****[📕]Pdf_ID :** {str(count).zfill(3)}\n**Pdf Title :** {name1} 😇😇.pdf \n**Batch :** {raw_text0}\n\n Downloaded By ➤{raw_text3}\n\n'
+                cc = f'**[📂] Vid ID :** {str(count).zfill(3)}\n**Video Title :** {name1} {res} 📂.mkv\n**Batch :** {raw_text0}\n\n ***Downloaded By*** :{raw_text3}\n\n'
+                cc1 = f'****[📕]Pdf_ID :** {str(count).zfill(3)}\n**Pdf Title :** {name1} 📕.pdf \n**Batch :** {raw_text0}\n\n ***Downloaded By*** : {raw_text3}\n\n'
                 if "drive" in url:
                     try:
                         ka = await helper.download(url, name)

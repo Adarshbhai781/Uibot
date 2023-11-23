@@ -33,20 +33,26 @@ bot = Client(
     bot_token=bot_token,
 )
 
+SUDOERS = filters.user()
 
-@bot.on_message(filters.command(["start"]))
+for x in sudo_users:
+    SUDOERS.add(int(x))
+if owner not in SUDOERS:
+    SUDOERS.add(int(owner))
+    
+@bot.on_message(filters.command(["start"]) & SUDOERS)
 async def account_login(bot: Client, m: Message):
     editable = await m.reply_text("𝐈 𝐚𝐦 𝐚 𝐓𝐞𝐱𝐭 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫 𝐁𝐨𝐭.\n\n𝐔𝐬𝐞 /𝐭𝐱𝐭 𝐜𝐨𝐦𝐦𝐚𝐧𝐝 𝐭𝐨 𝐞𝐱𝐭𝐫𝐚𝐜𝐭 𝐭𝐱𝐭 𝐟𝐢𝐥𝐞")
 
 
-@bot.on_message(filters.command("stop"))
+@bot.on_message(filters.command("stop") & SUDOERS)
 async def restart_handler(_, m):
     await m.reply_text("**STOPPED**🚦", True)
     os.execl(sys.executable, sys.executable, *sys.argv)
 
 
 
-@bot.on_message(filters.command(["txt"]))
+@bot.on_message(filters.command(["txt"]) & SUDOERS)
 async def account_login(bot: Client, m: Message):
     editable = await m.reply_text('➤𝐈 𝐜𝐚𝐧 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝 𝐕𝐢𝐝𝐞𝐨𝐬 𝐅𝐫𝐨𝐦 𝐓𝐗𝐓 𝐅𝐢𝐥𝐞 𝐎𝐧𝐞 𝐁𝐲 𝐎𝐧𝐞.\n➤𝐍𝐨𝐰 𝐒𝐞𝐧𝐝 𝐌𝐞 𝐘𝐨𝐮𝐫 𝐓𝐗𝐓 𝐅𝐢𝐥𝐞 𝐢𝐧 𝐀 𝐏𝐫𝐨𝐩𝐞𝐫 𝐖𝐚𝐲\n')
     input: Message = await bot.listen(editable.chat.id)

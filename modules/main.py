@@ -30,15 +30,8 @@ bot = Client(
     name=":memory:",
     api_id=api_id,
     api_hash=api_hash,
-    bot_token=bot_token,
-)
-
-SUDOERS = filters.user()
-
-for x in sudo_users:
-    SUDOERS.add(int(x))
-if owner not in SUDOERS:
-    SUDOERS.add(int(owner))
+    bot_token=bot_token
+) 
     
 @bot.on_message(filters.command(["start"])) 
 async def account_login(bot: Client, m: Message):

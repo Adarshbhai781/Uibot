@@ -65,7 +65,7 @@ async def restart_handler(_, m):
 
 
 
-@bot.on_message(filters.command(["txt"]) & SUDOERS)
+@bot.on_message(filters.command(["txt"])) 
 async def account_login(bot: Client, m: Message):
     editable = await m.reply_text('➤𝐈 𝐜𝐚𝐧 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝 𝐕𝐢𝐝𝐞𝐨𝐬 𝐅𝐫𝐨𝐦 𝐓𝐗𝐓 𝐅𝐢𝐥𝐞 𝐎𝐧𝐞 𝐁𝐲 𝐎𝐧𝐞.\n➤𝐍𝐨𝐰 𝐒𝐞𝐧𝐝 𝐌𝐞 𝐘𝐨𝐮𝐫 𝐓𝐗𝐓 𝐅𝐢𝐥𝐞 𝐢𝐧 𝐀 𝐏𝐫𝐨𝐩𝐞𝐫 𝐖𝐚𝐲\n')
     input: Message = await bot.listen(editable.chat.id)

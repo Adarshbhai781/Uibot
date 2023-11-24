@@ -40,12 +40,25 @@ for x in sudo_users:
 if owner not in SUDOERS:
     SUDOERS.add(int(owner))
     
-@bot.on_message(filters.command(["start"]) & SUDOERS)
+@bot.on_message(filters.command(["start"])) 
 async def account_login(bot: Client, m: Message):
     editable = await m.reply_text("𝐈 𝐚𝐦 𝐚 𝐓𝐞𝐱𝐭 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫 𝐁𝐨𝐭.\n\n𝐔𝐬𝐞 /𝐭𝐱𝐭 𝐜𝐨𝐦𝐦𝐚𝐧𝐝 𝐭𝐨 𝐞𝐱𝐭𝐫𝐚𝐜𝐭 𝐭𝐱𝐭 𝐟𝐢𝐥𝐞")
 
-
-@bot.on_message(filters.command("stop") & SUDOERS)
+keyboard = InlineKeyboardMarkup(
+    [
+        [
+            InlineKeyboardButton(
+                text="Devloper",
+                url="https://t.me/Adrenalinators",
+            ),
+            InlineKeyboardButton(
+                text="Repo",
+                url="https://github.com/",
+            ),
+        ],
+    ]
+)
+@bot.on_message(filters.command("stop") ) 
 async def restart_handler(_, m):
     await m.reply_text("**STOPPED**🚦", True)
     os.execl(sys.executable, sys.executable, *sys.argv)

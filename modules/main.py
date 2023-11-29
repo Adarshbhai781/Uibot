@@ -18,12 +18,11 @@ from aiohttp import ClientSession
 from pyromod import listen
 from subprocess import getstatusoutput
 
-from pyrogram import Client, filters
+from pyrogram import Client, filters, idle
 from pyrogram.types import Message
 from pyrogram.errors import FloodWait
 from pyrogram.errors.exceptions.bad_request_400 import StickerEmojiInvalid
 from pyrogram.types.messages_and_media import message
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
 bot = Client(
@@ -36,28 +35,10 @@ bot = Client(
 @bot.on_message(filters.command(["start"])) 
 async def account_login(bot: Client, m: Message):
     editable = await m.reply_text("𝐈 𝐚𝐦 𝐚 𝐓𝐞𝐱𝐭 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫 𝐁𝐨𝐭.\n\n𝐔𝐬𝐞 /𝐭𝐱𝐭 𝐜𝐨𝐦𝐦𝐚𝐧𝐝 𝐭𝐨 𝐞𝐱𝐭𝐫𝐚𝐜𝐭 𝐭𝐱𝐭 𝐟𝐢𝐥𝐞")
-
-keyboard = InlineKeyboardMarkup(
-    [
-        [
-            InlineKeyboardButton(
-                text="Devloper",
-                url="https://t.me/Adrenalinators",
-            ),
-            InlineKeyboardButton(
-                text="Repo",
-                url="https://github.com/",
-            ),
-        ],
-    ]
-)
 @bot.on_message(filters.command("stop") ) 
 async def restart_handler(_, m):
     await m.reply_text("**STOPPED**🚦", True)
     os.execl(sys.executable, sys.executable, *sys.argv)
-
-
-
 @bot.on_message(filters.command(["txt"])) 
 async def account_login(bot: Client, m: Message):
     editable = await m.reply_text('➤𝐈 𝐜𝐚𝐧 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝 𝐕𝐢𝐝𝐞𝐨𝐬 𝐅𝐫𝐨𝐦 𝐓𝐗𝐓 𝐅𝐢𝐥𝐞 𝐎𝐧𝐞 𝐁𝐲 𝐎𝐧𝐞.\n➤𝐍𝐨𝐰 𝐒𝐞𝐧𝐝 𝐌𝐞 𝐘𝐨𝐮𝐫 𝐓𝐗𝐓 𝐅𝐢𝐥𝐞 𝐢𝐧 𝐀 𝐏𝐫𝐨𝐩𝐞𝐫 𝐖𝐚𝐲\n')
@@ -80,8 +61,6 @@ async def account_login(bot: Client, m: Message):
            await m.reply_text("Invalid file input.")
            os.remove(x)
            return
-    
-   
     await editable.edit(f"Total links found are **{len(links)}**\n\nSend From where you want to download initial is **1**")
     input0: Message = await bot.listen(editable.chat.id)
     raw_text = input0.text
@@ -226,4 +205,7 @@ async def account_login(bot: Client, m: Message):
     await m.reply_text("Done")
 
 
-bot.run()
+bot.start()
+print("Bot Started....") 
+idle() 
+

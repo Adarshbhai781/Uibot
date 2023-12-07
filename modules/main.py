@@ -34,7 +34,7 @@ bot = Client(
     
 @bot.on_message(filters.command(["start"])) 
 async def account_login(bot: Client, m: Message):
-    editable = await m.reply_text("𝐈 𝐚𝐦 𝐚 𝐓𝐞𝐱𝐭 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫 𝐁𝐨𝐭.\n\n𝐔𝐬𝐞 /𝐭𝐱𝐭 𝐜𝐨𝐦𝐦𝐚𝐧𝐝 𝐭𝐨 𝐞𝐱𝐭𝐫𝐚𝐜𝐭 𝐭𝐱𝐭 𝐟𝐢𝐥𝐞")
+    editable = await m.reply_text("𝐈 𝐚𝐦 𝐚 𝐓𝐞𝐱𝐭 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫 𝐁𝐨𝐭.\n\n𝐔𝐬𝐞 /Theone 𝐜𝐨𝐦𝐦𝐚𝐧𝐝 𝐭𝐨 𝐞𝐱𝐭𝐫𝐚𝐜𝐭 𝐭𝐱𝐭 𝐟𝐢𝐥𝐞")
 @bot.on_message(filters.command("stop") ) 
 async def restart_handler(_, m):
     await m.reply_text("**STOPPED**🚦", True)
@@ -158,8 +158,8 @@ async def account_login(bot: Client, m: Message):
 
             try:  
                 
-                cc = f'**[📂] Vid ID :** {str(count).zfill(3)}\n**Video Title :** {name1} {res} .mkv\n**Batch :** {raw_text0}\n\n**Downloaded By :** [{m.from_user.first_name}](tg://user?id={m.from_user.id}) \n\n'
-                cc1 = f'****[📕]Pdf_ID :** {str(count).zfill(3)}\n**Pdf Title :** {name1} .pdf \n**Batch :** {raw_text0}\n\n**Downloaded By :** [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n\n'
+                cc = f'**[📂] Vid ID :** {str(count).zfill(3)}\n**Video Title :** {name1} {res} Theone.mkv\n**Batch :** {raw_text0}\n\n**Downloaded By :** [{m.from_user.first_name}](tg://user?id={m.from_user.id}) \n\n'
+                cc1 = f'****[📕]Pdf_ID :** {str(count).zfill(3)}\n**Pdf Title :** {name1} Theone.pdf \n**Batch :** {raw_text0}\n\n**Downloaded By :** [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n\n'
                 if "drive" in url:
                     try:
                         ka = await helper.download(url, name)
